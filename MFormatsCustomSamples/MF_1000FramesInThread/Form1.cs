@@ -101,13 +101,13 @@ namespace MF_1000FramesInThread
                 savePath = saveFileDialog1.FileName;
                 count = 0;
                 startTime = DateTime.Now;
-                m_objReader.PropsSet("experimental.mfcodecs", "true");
-                m_objReader.PropsSet("experimental.out_video_packets", "true");
-                m_objReader.PropsSet("external_process", "false");
+                //m_objReader.PropsSet("experimental.mfcodecs", "true");
+                //m_objReader.PropsSet("experimental.out_video_packets", "true");
+                //m_objReader.PropsSet("external_process", "false");
                 m_objReader.ReaderOpen(openPath, "");
 
-                m_objWriter.PropsSet("external_process", "false");
-                m_objWriter.WriterSet(savePath, 0, "format='mp4' video::codec='packets' audio::codec='audio_packets'"); // 
+                //m_objWriter.PropsSet("external_process", "false");
+                m_objWriter.WriterSet(savePath, 0, "format='mp4' video::codec='n264' audio::codec='aac'"); // video::codec='packets' audio::codec='audio_packets'"
 
                 start = true;
             }
