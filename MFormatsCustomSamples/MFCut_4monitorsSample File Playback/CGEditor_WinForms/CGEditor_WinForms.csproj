@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A45D490-F697-48A3-917E-6D3C34968EFF}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CGEditor_WinForms</RootNamespace>
+    <AssemblyName>CGEditor_WinForms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CGItemWrappers\CGBaseItem.cs" />
+    <Compile Include="CGItemWrappers\Composition.cs" />
+    <Compile Include="CGItemWrappers\Flash.cs" />
+    <Compile Include="CGItemWrappers\Graphics.cs" />
+    <Compile Include="CGItemWrappers\Group.cs" />
+    <Compile Include="CGItemWrappers\Image.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IBlur.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IChangeNotify.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IFont.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IGlow.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IGradient.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IMisc.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IOutline.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IPath.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IPosition.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IShadow.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IShape.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\ISimpleColor.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\ISpeed.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IText.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\ITicker.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\ITickerNewContent.cs" />
+    <Compile Include="CGItemWrappers\Interfaces\IVisible.cs" />
+    <Compile Include="CGItemWrappers\Shape.cs" />
+    <Compile Include="CGItemWrappers\Text.cs" />
+    <Compile Include="CGItemWrappers\Ticker.cs" />
+    <Compile Include="CGItemWrappers\TickerLine.cs" />
+    <Compile Include="CGItemWrappers\Video.cs" />
+    <Compile Include="CGItemWrappers\WrapperHelpers.cs" />
+    <Compile Include="CGItemWrappers\_ItemSources.cs" />
+    <Compile Include="ContentManagers\TextContentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContentManagers\TextContentManager.Designer.cs">
+      <DependentUpon>TextContentManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContentManagers\TickerContentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ContentManagers\TickerContentManager.Designer.cs">
+      <DependentUpon>TickerContentManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\BlurEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\BlurEditor.Designer.cs">
+      <DependentUpon>BlurEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ColorChangedEventArgs.cs" />
+    <Compile Include="CustomPropertyEditors\ColorChooser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ColorHandler.cs" />
+    <Compile Include="CustomPropertyEditors\ColorWheel.cs" />
+    <Compile Include="CustomPropertyEditors\FontEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\FontEditor.Designer.cs">
+      <DependentUpon>FontEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\GradientEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\GradientEditor.Designer.cs">
+      <DependentUpon>GradientEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\MiscEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\MiscEditor.Designer.cs">
+      <DependentUpon>MiscEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ObservableCollections.cs" />
+    <Compile Include="CustomPropertyEditors\OpenFlashEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OpenFlashEditor.Designer.cs">
+      <DependentUpon>OpenFlashEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OpenImageEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OpenImageEditor.Designer.cs">
+      <DependentUpon>OpenImageEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OpenVideoEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OpenVideoEditor.Designer.cs">
+      <DependentUpon>OpenVideoEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OutlineColorEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\OutlineColorEditor.Designer.cs">
+      <DependentUpon>OutlineColorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\PositionEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\PositionEditor.Designer.cs">
+      <DependentUpon>PositionEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ShadowEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ShadowEditor.Designer.cs">
+      <DependentUpon>ShadowEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ShapeEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\ShapeEditor.Designer.cs">
+      <DependentUpon>ShapeEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\SimpleColorEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\SimpleColorEditor.Designer.cs">
+      <DependentUpon>SimpleColorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\SpeedEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\SpeedEditor.Designer.cs">
+      <DependentUpon>SpeedEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TextGradientEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TextGradientEditor.Designer.cs">
+      <DependentUpon>TextGradientEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TextOutlineColorEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TextOutlineColorEditor.Designer.cs">
+      <DependentUpon>TextOutlineColorEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TickerContentEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TickerContentEditor.Designer.cs">
+      <DependentUpon>TickerContentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TickerEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TickerEditor.Designer.cs">
+      <DependentUpon>TickerEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\VisibilityEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\VisibilityEditor.Designer.cs">
+      <DependentUpon>VisibilityEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor.cs" />
+    <Compile Include="CustomPropertyEditors\GlowEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\GlowEditor.Designer.cs">
+      <DependentUpon>GlowEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Misc\Helpers.cs" />
+    <Compile Include="PreviewControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PreviewControl.Designer.cs">
+      <DependentUpon>PreviewControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CustomPropertyEditors\TextContentEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CustomPropertyEditors\TextContentEditor.Designer.cs">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UndoRedoManager\IUndoRedoRecord.cs" />
+    <Compile Include="UndoRedoManager\ListStackExtensions.cs" />
+    <Compile Include="UndoRedoManager\UndoRedoManager.cs" />
+    <Compile Include="UndoRedoManager\UndoRedoRecord.cs" />
+    <Compile Include="UndoRedoManager\UndoTransaction.cs" />
+    <Compile Include="XMLDescriptionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XMLDescriptionControl.Designer.cs">
+      <DependentUpon>XMLDescriptionControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XmlEditor.designer.cs">
+      <DependentUpon>XmlEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="XmlToken.cs" />
+    <Compile Include="XmlTokenizer.cs" />
+    <EmbeddedResource Include="ContentManagers\TextContentManager.resx">
+      <DependentUpon>TextContentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContentManagers\TickerContentManager.resx">
+      <DependentUpon>TickerContentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\BlurEditor.resx">
+      <DependentUpon>BlurEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\ColorChooser.resx">
+      <DependentUpon>ColorChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\FontEditor.resx">
+      <DependentUpon>FontEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\GlowEditor.resx">
+      <DependentUpon>GlowEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\GradientEditor.resx">
+      <DependentUpon>GradientEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\MiscEditor.resx">
+      <DependentUpon>MiscEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\OpenFlashEditor.resx">
+      <DependentUpon>OpenFlashEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\OpenImageEditor.resx">
+      <DependentUpon>OpenImageEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\OpenVideoEditor.resx">
+      <DependentUpon>OpenVideoEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\OutlineColorEditor.resx">
+      <DependentUpon>OutlineColorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\PositionEditor.resx">
+      <DependentUpon>PositionEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\ShadowEditor.resx">
+      <DependentUpon>ShadowEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\ShapeEditor.resx">
+      <DependentUpon>ShapeEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\SimpleColorEditor.resx">
+      <DependentUpon>SimpleColorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\SpeedEditor.resx">
+      <DependentUpon>SpeedEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\TextGradientEditor.resx">
+      <DependentUpon>TextGradientEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\TextOutlineColorEditor.resx">
+      <DependentUpon>TextOutlineColorEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\TickerContentEditor.resx">
+      <DependentUpon>TickerContentEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\TickerEditor.resx">
+      <DependentUpon>TickerEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CustomPropertyEditors\VisibilityEditor.resx">
+      <DependentUpon>VisibilityEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreviewControl.resx">
+      <DependentUpon>PreviewControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="CustomPropertyEditors\TextContentEditor.resx">
+      <DependentUpon>TextContentEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="XMLDescriptionControl.resx">
+      <DependentUpon>XMLDescriptionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Flash.png" />
+    <None Include="Resources\Image.png" />
+    <None Include="Resources\LineHeight.png" />
+    <None Include="Resources\TickerText.png" />
+    <None Include="Resources\TickerSpeed.png" />
+    <None Include="Resources\Distance.png" />
+    <None Include="Resources\Shape.png" />
+    <None Include="Resources\NumberSides.png" />
+    <None Include="Resources\GradType.png" />
+    <None Include="Resources\WordWrap.png" />
+    <None Include="Resources\Vertical.png" />
+    <None Include="Resources\Underline.png" />
+    <None Include="Resources\Strikeout.png" />
+    <None Include="Resources\RightToLeft.png" />
+    <None Include="Resources\NoTabs.png" />
+    <None Include="Resources\Text.png" />
+    <None Include="Resources\Outline.png" />
+    <None Include="Resources\Gradient.png" />
+    <None Include="Resources\Font.png" />
+    <None Include="Resources\Flip.png" />
+    <None Include="Resources\Angle.png" />
+    <None Include="Resources\YOffset.png" />
+    <None Include="Resources\XOffset.png" />
+    <None Include="Resources\ShadowBlur.png" />
+    <None Include="Resources\Glow.png" />
+    <None Include="Resources\SpeedY.png" />
+    <None Include="Resources\SpeedX.png" />
+    <None Include="Resources\Y.png" />
+    <None Include="Resources\X.png" />
+    <None Include="Resources\Width.png" />
+    <None Include="Resources\ScaleType.png" />
+    <None Include="Resources\PlayMode.png" />
+    <None Include="Resources\PixelAR.png" />
+    <None Include="Resources\Interlace.png" />
+    <None Include="Resources\Height.png" />
+    <None Include="Resources\EdgeSmooth.png" />
+    <None Include="Resources\Color.png" />
+    <None Include="Resources\Alpha.png" />
+    <None Include="Resources\Alignment.png" />
+    <None Include="Resources\Tile2.png" />
+    <None Include="Resources\Visibility.png" />
+    <None Include="Resources\Ungroup.png" />
+    <None Include="Resources\Send-To-Back.png" />
+    <None Include="Resources\Layer-Up.png" />
+    <None Include="Resources\Layer-Down.png" />
+    <None Include="Resources\Group.png" />
+    <None Include="Resources\Bring-To-Front.png" />
+    <None Include="Resources\Align-Top.png" />
+    <None Include="Resources\Align-Right.png" />
+    <None Include="Resources\Align-Middle.png" />
+    <None Include="Resources\Align-Left.png" />
+    <None Include="Resources\Align-Center.png" />
+    <None Include="Resources\Align-Bottom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="MFORMATSLib">
+      <Guid>{927771C8-EA18-45C7-B8C1-5B2CC1B531DE}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>2</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="MLCHARGENLib">
+      <Guid>{A792045E-B55C-473B-8C61-861E93A1D370}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Sample File Playback Console.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Include\ArgParse\get_arguments.cpp">
+      <Filter>Include\ArgParse</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\ArgParse\platform_os.h">
+      <Filter>Include\ArgParse</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\ArgParse\get_arguments.h">
+      <Filter>Include\ArgParse</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{cec187db-8214-42d9-afb3-efa869d4303e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{daa635e4-a4ed-4289-bf39-ea10675992f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0ac31b1a-feec-4cb6-8d0d-29bf0570bfbe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include\ArgParse">
+      <UniqueIdentifier>{9c25db2a-f0b1-4ba7-8fc1-6d433ca55b8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDL">
+      <UniqueIdentifier>{ce939f3c-5df6-458f-b8cb-83b7967c6fba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Midl Include="..\!Include\IDL\MFormats.idl">
+      <Filter>IDL</Filter>
+    </Midl>
+  </ItemGroup>
+</Project>
