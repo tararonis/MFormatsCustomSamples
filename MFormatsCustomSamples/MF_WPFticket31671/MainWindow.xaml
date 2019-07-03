@@ -1,0 +1,14 @@
+﻿<Window x:Class="MF_WPFticket31671.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MF_WPFticket31671"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="310.533">
+    <Grid Loaded="Grid_Loaded" Margin="0,0,2,0">
+        <Button x:Name="AddLive_btn" Content="AddLive" HorizontalAlignment="Left" Margin="28,338,0,0" VerticalAlignment="Top" Width="225" Click="Button_Click"/>
+        <Image x:Name="preview" HorizontalAlignment="Left" Height="153" Margin="19,98,0,0" VerticalAlignment="Top" Width="265"/>
+
+    </Grid>
+</Window>

@@ -37,7 +37,7 @@ namespace MF_1000FramesInThread
         {
             m_objPreview = new MFPreviewClass();
             m_objReader = new MFReaderClass();
-            m_objWriter = new MFWriterClass();
+            //m_objWriter = new MFWriterClass();
 
             m_objPreview.PreviewWindowSet("", panelPrev.Handle.ToInt32());
             m_objPreview.PreviewEnable("", 1, 1);
@@ -57,20 +57,20 @@ namespace MF_1000FramesInThread
                 if (start)
                 {
                     count++;
-                    if (count >= 1000 && count <= 2000)
+                    if (count >= 0 && count <= 3000)
                     {
                         MFFrame frame;
                         m_objReader.SourceFrameGet(-1, out frame, "");                       
-                        m_objPreview.ReceiverFramePut(frame,0, "");
-                        m_objWriter.ReceiverFramePut(frame, -1, "");
+                        m_objPreview.ReceiverFramePut(frame,-1, "");
+                        //m_objWriter.ReceiverFramePut(frame, -1, "");
 
                         Marshal.ReleaseComObject(frame);
                         
                     }
-                    if (count > 2000)
+                    if (count > 3000)
                     {
                         endTime = DateTime.Now;
-                        m_objWriter.WriterClose(0);
+                        //m_objWriter.WriterClose(0);
                         m_objReader.ReaderClose();                       
                        
                         BeginInvoke(new InvokeDelegate(UpdateButton));
@@ -101,13 +101,13 @@ namespace MF_1000FramesInThread
                 savePath = saveFileDialog1.FileName;
                 count = 0;
                 startTime = DateTime.Now;
-                //m_objReader.PropsSet("experimental.mfcodecs", "true");
-                //m_objReader.PropsSet("experimental.out_video_packets", "true");
-                //m_objReader.PropsSet("external_process", "false");
+                m_objReader.PropsSet("experimental.mfcodecs", "true");
+                m_objReader.PropsSet("experimental.out_video_packets", "true");
+                m_objReader.PropsSet("external_process", "false");
                 m_objReader.ReaderOpen(openPath, "");
 
                 //m_objWriter.PropsSet("external_process", "false");
-                m_objWriter.WriterSet(savePath, 0, "format='mp4' video::codec='n264' audio::codec='aac'"); // video::codec='packets' audio::codec='audio_packets'"
+                //m_objWriter.WriterSet(savePath, 0, "format='mp4' video::codec='packets' audio::codec='audio_packets'");// video::codec='n264' audio::codec='aac'"); // 
 
                 start = true;
             }
