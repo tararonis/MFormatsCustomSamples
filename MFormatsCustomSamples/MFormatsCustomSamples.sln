@@ -43,6 +43,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MFCut_4monitorsSample File 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_Overlay_Sample File Playback", "MFOverlayMethod\MFOverlay_Sample File Playback\MF_Overlay_Sample File Playback.csproj", "{B53AB49E-E974-4FA5-BB22-577BFD9B9D1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_CreateBitmap_32888", "MF_CreateBitmap_32888\MF_CreateBitmap_32888.csproj", "{3088B312-5509-4124-9A71-01A539EFCAF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MF_SeekingMPEGfileProblem_32906", "MF_SeekingMPEGfileProblem\MF_SeekingMPEGfileProblem_32906.csproj", "{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -287,6 +291,30 @@ Global
 		{B53AB49E-E974-4FA5-BB22-577BFD9B9D1B}.Release|x64.Build.0 = Release|x64
 		{B53AB49E-E974-4FA5-BB22-577BFD9B9D1B}.Release|x86.ActiveCfg = Release|x86
 		{B53AB49E-E974-4FA5-BB22-577BFD9B9D1B}.Release|x86.Build.0 = Release|x86
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|x64.Build.0 = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Debug|x86.Build.0 = Debug|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|x64.ActiveCfg = Release|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|x64.Build.0 = Release|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|x86.ActiveCfg = Release|Any CPU
+		{3088B312-5509-4124-9A71-01A539EFCAF9}.Release|x86.Build.0 = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|x64.Build.0 = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Debug|x86.Build.0 = Debug|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|x64.ActiveCfg = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|x64.Build.0 = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|x86.ActiveCfg = Release|Any CPU
+		{A8FA621C-48B8-4995-AAF2-3356D6CF74A6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
