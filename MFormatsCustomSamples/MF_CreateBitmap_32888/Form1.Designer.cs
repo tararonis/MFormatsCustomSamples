@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             this.panelPrev = new System.Windows.Forms.Panel();
-            this.OpenFile_btn = new System.Windows.Forms.Button();
-            this.Stop_btn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.Start_btn = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.encodingConf_txb = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // panelPrev
@@ -39,54 +41,74 @@
             this.panelPrev.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panelPrev.Location = new System.Drawing.Point(57, 35);
             this.panelPrev.Name = "panelPrev";
-            this.panelPrev.Size = new System.Drawing.Size(372, 246);
+            this.panelPrev.Size = new System.Drawing.Size(604, 348);
             this.panelPrev.TabIndex = 0;
-            // 
-            // OpenFile_btn
-            // 
-            this.OpenFile_btn.Location = new System.Drawing.Point(57, 306);
-            this.OpenFile_btn.Name = "OpenFile_btn";
-            this.OpenFile_btn.Size = new System.Drawing.Size(197, 23);
-            this.OpenFile_btn.TabIndex = 1;
-            this.OpenFile_btn.Text = "Open";
-            this.OpenFile_btn.UseVisualStyleBackColor = true;
-            this.OpenFile_btn.Click += new System.EventHandler(this.OpenFile_btn_Click_1);
-            // 
-            // Stop_btn
-            // 
-            this.Stop_btn.Location = new System.Drawing.Point(57, 335);
-            this.Stop_btn.Name = "Stop_btn";
-            this.Stop_btn.Size = new System.Drawing.Size(197, 23);
-            this.Stop_btn.TabIndex = 2;
-            this.Stop_btn.Text = "Stop";
-            this.Stop_btn.UseVisualStyleBackColor = true;
-            this.Stop_btn.Click += new System.EventHandler(this.Stop_btn_Click_1);
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // Start_btn
+            // 
+            this.Start_btn.Location = new System.Drawing.Point(57, 404);
+            this.Start_btn.Name = "Start_btn";
+            this.Start_btn.Size = new System.Drawing.Size(604, 23);
+            this.Start_btn.TabIndex = 4;
+            this.Start_btn.Text = "Start";
+            this.Start_btn.UseVisualStyleBackColor = true;
+            this.Start_btn.Click += new System.EventHandler(this.Start_btn_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(680, 62);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(154, 20);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.Text = "M:\\!Delete\\1.mp4";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(677, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(54, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "SavePath";
+            // 
+            // encodingConf_txb
+            // 
+            this.encodingConf_txb.Location = new System.Drawing.Point(57, 443);
+            this.encodingConf_txb.Name = "encodingConf_txb";
+            this.encodingConf_txb.Size = new System.Drawing.Size(604, 20);
+            this.encodingConf_txb.TabIndex = 7;
+            this.encodingConf_txb.Text = "format=\'mp4\' video::codec=\'mpeg2\' video::b =\'10M\' audio::codec=\'aac\'";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Stop_btn);
-            this.Controls.Add(this.OpenFile_btn);
+            this.ClientSize = new System.Drawing.Size(866, 553);
+            this.Controls.Add(this.encodingConf_txb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Start_btn);
             this.Controls.Add(this.panelPrev);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Panel panelPrev;
-        private System.Windows.Forms.Button OpenFile_btn;
-        private System.Windows.Forms.Button Stop_btn;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button Start_btn;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox encodingConf_txb;
     }
 }
 
