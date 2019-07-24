@@ -72,7 +72,6 @@ namespace MF_CreateBitmap_32888
 
                         M_AV_PROPS avProps = new M_AV_PROPS();
                         avProps.vidProps.eVideoFormat = eMVideoFormat.eMVF_HD1080_30p;
-                        //avProps.vidProps.eInterlace = eMInterlace.eMI_Field1First;
                         avProps.vidProps.fccType = eMFCC.eMFCC_RGB32;
                         avProps.vidProps.nWidth = bmp.Width;
                         avProps.vidProps.nHeight = -1 * bmp.Height;    // Negative height for top-bottom RGB images (if positive->bottom-top)

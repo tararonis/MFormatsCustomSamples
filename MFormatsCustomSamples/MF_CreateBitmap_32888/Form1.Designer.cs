@@ -77,11 +77,12 @@
             // 
             // encodingConf_txb
             // 
+            this.encodingConf_txb.ForeColor = System.Drawing.SystemColors.WindowText;
             this.encodingConf_txb.Location = new System.Drawing.Point(57, 443);
             this.encodingConf_txb.Name = "encodingConf_txb";
             this.encodingConf_txb.Size = new System.Drawing.Size(604, 20);
             this.encodingConf_txb.TabIndex = 7;
-            this.encodingConf_txb.Text = "format=\'mp4\' video::codec=\'mpeg2\' video::b =\'10M\' audio::codec=\'aac\'";
+            this.encodingConf_txb.Text = "format=\'mp4\' video::codec=\'n264\' video::b=\'10M\' audio::codec=\'aac\'";
             // 
             // Form1
             // 
