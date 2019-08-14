@@ -313,5 +313,52 @@ namespace MF_5encodingProcesses
                 Start5_btn.Enabled = true;
             }
         }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            UpdateStatistic(label1, m_objWriter1);
+            UpdateStatistic(label2, m_objWriter2);
+            UpdateStatistic(label3, m_objWriter3);
+            UpdateStatistic(label4, m_objWriter4);
+            UpdateStatistic(label5, m_objWriter5);            
+        }
+
+        private void UpdateStatistic(Label label, MFWriterClass m_objWriter)
+        {
+            label.BackColor = Color.OrangeRed;
+
+            string srtOrPath, opttionsList;
+            string fIn, bIn, fDrops, buff;
+
+            m_objWriter.WriterGet(out srtOrPath, out opttionsList);
+
+            int propsCount;
+            m_objWriter.PropsGetCount("stat", out propsCount);
+            StringBuilder propsBuilder = new StringBuilder();
+            for (int propsIndex = 0; propsIndex < propsCount; propsIndex++)
+            {
+                string propsName;
+                string propsValue;
+                int propsIsNode;
+                m_objWriter.PropsGetByIndex("stat", propsIndex, out propsName, out propsValue, out propsIsNode);
+                propsBuilder.AppendLine(propsName + " : " + propsValue);
+            }
+
+            string propsStatList = propsBuilder.ToString();
+            m_objWriter.PropsGet("stat::frames_in", out fIn);
+            m_objWriter.PropsGet("stat::breaks_in", out bIn);
+
+            m_objWriter.PropsGet("stat::buffers_overflow", out fDrops);
+            m_objWriter.PropsGet("stat::buffered", out buff);
+
+
+            label.Text = "Capturing file: " + srtOrPath + "\n\n" +
+                                   "Frames In: " + fIn + "; " +
+                                   "Break In: " + bIn + "; " +
+                                   "Frame drops: " + fDrops + ";\n" +
+                                   "Buffer: " + buff;
+
+        }
+
     }
 }

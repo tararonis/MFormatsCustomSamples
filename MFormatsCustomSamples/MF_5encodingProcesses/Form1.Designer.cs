@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -47,6 +48,12 @@
             this.SavePath_txb = new System.Windows.Forms.TextBox();
             this.SelectSaveFolder_btn = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,7 +83,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel4.Location = new System.Drawing.Point(12, 330);
+            this.panel4.Location = new System.Drawing.Point(11, 388);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(248, 203);
             this.panel4.TabIndex = 1;
@@ -84,7 +91,7 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.panel5.Location = new System.Drawing.Point(374, 330);
+            this.panel5.Location = new System.Drawing.Point(373, 388);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(248, 203);
             this.panel5.TabIndex = 1;
@@ -125,7 +132,7 @@
             // Start4_btn
             // 
             this.Start4_btn.Enabled = false;
-            this.Start4_btn.Location = new System.Drawing.Point(12, 540);
+            this.Start4_btn.Location = new System.Drawing.Point(11, 598);
             this.Start4_btn.Name = "Start4_btn";
             this.Start4_btn.Size = new System.Drawing.Size(247, 23);
             this.Start4_btn.TabIndex = 5;
@@ -136,7 +143,7 @@
             // Start5_btn
             // 
             this.Start5_btn.Enabled = false;
-            this.Start5_btn.Location = new System.Drawing.Point(374, 540);
+            this.Start5_btn.Location = new System.Drawing.Point(373, 598);
             this.Start5_btn.Name = "Start5_btn";
             this.Start5_btn.Size = new System.Drawing.Size(247, 23);
             this.Start5_btn.TabIndex = 6;
@@ -147,7 +154,7 @@
             // EncodingConfigs_lsb
             // 
             this.EncodingConfigs_lsb.FormattingEnabled = true;
-            this.EncodingConfigs_lsb.Location = new System.Drawing.Point(648, 330);
+            this.EncodingConfigs_lsb.Location = new System.Drawing.Point(660, 388);
             this.EncodingConfigs_lsb.Name = "EncodingConfigs_lsb";
             this.EncodingConfigs_lsb.Size = new System.Drawing.Size(422, 160);
             this.EncodingConfigs_lsb.TabIndex = 7;
@@ -178,7 +185,7 @@
             // 
             // Path4_txb
             // 
-            this.Path4_txb.Location = new System.Drawing.Point(12, 578);
+            this.Path4_txb.Location = new System.Drawing.Point(11, 636);
             this.Path4_txb.Name = "Path4_txb";
             this.Path4_txb.ReadOnly = true;
             this.Path4_txb.Size = new System.Drawing.Size(247, 20);
@@ -186,7 +193,7 @@
             // 
             // Path5_txb
             // 
-            this.Path5_txb.Location = new System.Drawing.Point(374, 578);
+            this.Path5_txb.Location = new System.Drawing.Point(373, 636);
             this.Path5_txb.Name = "Path5_txb";
             this.Path5_txb.ReadOnly = true;
             this.Path5_txb.Size = new System.Drawing.Size(247, 20);
@@ -194,14 +201,14 @@
             // 
             // SavePath_txb
             // 
-            this.SavePath_txb.Location = new System.Drawing.Point(648, 512);
+            this.SavePath_txb.Location = new System.Drawing.Point(660, 570);
             this.SavePath_txb.Name = "SavePath_txb";
             this.SavePath_txb.Size = new System.Drawing.Size(422, 20);
             this.SavePath_txb.TabIndex = 13;
             // 
             // SelectSaveFolder_btn
             // 
-            this.SelectSaveFolder_btn.Location = new System.Drawing.Point(648, 539);
+            this.SelectSaveFolder_btn.Location = new System.Drawing.Point(660, 597);
             this.SelectSaveFolder_btn.Name = "SelectSaveFolder_btn";
             this.SelectSaveFolder_btn.Size = new System.Drawing.Size(422, 23);
             this.SelectSaveFolder_btn.TabIndex = 14;
@@ -209,11 +216,72 @@
             this.SelectSaveFolder_btn.UseVisualStyleBackColor = true;
             this.SelectSaveFolder_btn.Click += new System.EventHandler(this.SelectSaveFolder_btn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label1.Location = new System.Drawing.Point(12, 318);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label2.Location = new System.Drawing.Point(371, 318);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "label2";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(748, 318);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label4.Location = new System.Drawing.Point(9, 669);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label5.Location = new System.Drawing.Point(371, 669);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(35, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "label5";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1094, 631);
+            this.ClientSize = new System.Drawing.Size(1094, 754);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.SelectSaveFolder_btn);
             this.Controls.Add(this.SavePath_txb);
             this.Controls.Add(this.Path5_txb);
@@ -261,6 +329,12 @@
         private System.Windows.Forms.TextBox SavePath_txb;
         private System.Windows.Forms.Button SelectSaveFolder_btn;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }
 
