@@ -17,7 +17,8 @@ namespace MF_5encodingProcesses
     public partial class Form1 : Form
     {
         string[] listOfEncodingConfigurations = {
-            " format='mp4' video::codec='n264' audio::codec='aac'",
+            " format='mp4' video::codec='n264' video::b='10M' video::preset='high_quality' video::profile='Main' audio::codec='aac'",
+            " format='mp4' video::codec='q264sw' video::qs_version='0.0' video::qs_impl='MFX_IMPL_SOFTWARE' video::profile='High' video::ref_frames='3' video::b='6M' audio::codec='aac'"
         };
 
         private CancellationTokenSource cancelSource;
