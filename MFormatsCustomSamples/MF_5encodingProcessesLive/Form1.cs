@@ -276,14 +276,14 @@ namespace MF_5encodingProcesses
                 }
                 if (m_arrPreviews[i] != null)
                 {
-                    m_arrPreviews[i].MFClose();
-                    Thread.Sleep(60);
+                    m_arrPreviews[i].MFClose();                    
                     Marshal.ReleaseComObject(m_arrPreviews[i]);
                 }
 
                 if (m_arrLives[i] != null)
                 {
                     m_arrLives[i].MFClose();
+                    Thread.Sleep(60);
                     Marshal.ReleaseComObject(m_arrPreviews[i]);
                 }
 
