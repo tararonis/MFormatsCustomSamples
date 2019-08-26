@@ -1,0 +1,524 @@
+//---------------------------------------------------------------------------
+// MPlatform.idl : IDL source
+//
+// Description: Interfaces for Medialooks MPlatform objects
+//
+//---------------------------------------------------------------------------
+// Copyright (c), Medialooks Soft OOO
+// http://www.medialooks.com/support/
+//
+//---------------------------------------------------------------------------
+//
+// This file and the source code contained within is Intellectual Property
+// of Medialooks Soft OOO. Your use of this source code is subject to
+// the Medialooks End-User License Agreement that can be found
+// here: http://www.medialooks.com/la/.
+//
+//---------------------------------------------------------------------------
+
+import "basetsd.h";
+#include "MInterfaces.idl"
+
+
+[
+	uuid(92BEC1C8-EA18-45C7-B8C1-5B2CC1B531DE),
+	version(2.0),
+	helpstring("MPlatform Type Library")
+]
+library MPLATFORMLib
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	// Notification interface 
+	[
+		uuid(4F365161-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("IMEvents Interface")
+	]
+	dispinterface IMEvents
+	{
+		properties:
+		methods:
+		// OBSOLETE - Use OnEventSafe() - as this method rewuired manual GC call for release received COM object 
+		// Called for each input sample (frame), BEFORE items will be overlayed.
+		// Note: 
+		// - If this method is SYNC (on_event.sync=true), the video stream blocked until this method return	
+		// - In C#/.Net you have to relase COM pointer via Marshal.ReleaseComObject(pEventObject);
+		[id(1), helpstring("Called if some events occurs. See events list for details."
+							"Note: This method is SYNC so the video stream is blocked while this method is called")] 
+		HRESULT OnEvent(
+						// Channel ID
+						[in] BSTR bsChannelID,
+						//Event name
+						[in] BSTR bsEventName, 
+						//Event param
+						[in] BSTR bsEventParam,
+						//Object - e.g. object what raise the event (see events list for details)
+						[in] IUnknown* pEventObject);
+
+		// OBSOLETE - Use OnFrameSafe() - as this method required manual GC call for release received COM object 
+		// Called for each input sample (frame), BEFORE items will be overlayed.
+		// Note: 
+		// - By default the pMFrame contain ONLY time and props, for have access to A/V data use on_frame.data=true
+		// - If this method is SYNC (on_frame.sync=true), thus the video stream blocked until this method return	
+		// - In C#/.Net you have to relase COM pointer via Marshal.ReleaseComObject(pMFrame);
+		[id(2), helpstring("Called for each input/output sample (frame)." 
+						"Note: This method is SYNC so the video stream is blocked while this method is called")] 
+		HRESULT OnFrame(
+						[in] BSTR bsChannelID,
+						// MFrame object
+						[in] IUnknown* pMFrame );
+
+	};
+
+	// Notification interface 
+	[
+		uuid(4F365171-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("IMEventsEvent Interface")
+	]
+	dispinterface IMEventsEvent
+	{
+		properties:
+		methods:
+	
+		// Called for each input sample (frame), BEFORE items will be overlayed.
+		// Note: 
+		// - If this method is SYNC (on_event.sync=true), the video stream blocked until this method return	
+		// - In C#/.Net you have to relase COM pointer via Marshal.ReleaseComObject(pEventObject);
+		[id(1), helpstring("Called if some events occurs. See events list for details."
+							"Note: This method is SYNC so the video stream is blocked while this method is called")] 
+		HRESULT OnEventSafe(
+						// Channel ID
+						[in] BSTR bsChannelID,
+						//Event name
+						[in] BSTR bsEventName, 
+						//Event param
+						[in] BSTR bsEventParam,
+						//Object - e.g. object what raise the event (see events list for details)
+						[in] IUnknown* pEventObject);
+
+	};
+
+	// Notification interface 
+	[
+		uuid(4F365172-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("IMEventsFrame Interface")
+	]
+	dispinterface IMEventsFrame
+	{
+		properties:
+		methods:
+		// Called for each input sample (frame), BEFORE items will be overlayed.
+		// Note: 
+		// - By default the pMFrame contain ONLY time and props, for have access to A/V data use on_frame.data=true
+		// - If this method is SYNC (on_frame.sync=true), thus the video stream blocked until this method return	
+		// - In C#/.Net you have to relase COM pointer via Marshal.ReleaseComObject(pMFrame);
+		[id(1), helpstring("Called for each input/output sample (frame)." 
+						"Note: This method is SYNC so the video stream is blocked while this method is called")] 
+		HRESULT OnFrameSafe(
+						[in] BSTR bsChannelID,
+						// MFrame object
+						[in] IUnknown* pMFrame );
+
+	};
+
+	[
+		uuid(4F365100-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("MFactory Class")
+	]
+	coclass MFactory
+	{
+		[default] interface IMFactory;
+		interface IMFrames;
+		interface IMFFactory;
+		interface IMFBuffersAllocator;
+		interface IMFSideData;
+		interface IMFCreator;
+	};
+
+	[
+		uuid(4F365177-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("MFFactory Class")
+	]
+	coclass MFFactory
+	{
+		[default] interface IMFFactory;
+		interface IMFProcess; // For have interface in TLB
+		interface IMFBuffersAllocator;
+		interface IMFSideData;
+		interface IMSenders;
+		interface IMFCreator;
+		interface IMFProps;
+		interface IMProps; // For MSink info
+		interface IMFConfig;
+	};
+
+	[
+		uuid(4F365160-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("MFrame Class")
+	]
+	coclass MFrame
+	{
+		[default] interface IMFrame;
+		interface IMFFrameGPU;
+		interface IMFSideData;
+		interface IMFFrame;
+	};
+
+	[
+		uuid(4F365165-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("MFrames Class")
+	]
+	coclass MFrames
+	{
+		[default] interface IMFrames;
+		interface IMFFactory;
+		interface IMFConfig;
+	};
+
+	[
+		uuid(4F365099-473F-4ad5-A5C2-428FE0C8E03E),
+		helpstring("MNode Class")
+	]
+	coclass MNode
+	{
+		[default] interface IMNode;
+		interface IMAttributes;
+	};
+
+	[
+		uuid(4985960B-08F5-4C7A-B439-3255A8A8E9E4),
+		helpstring("MProxy Class (internal)")
+	]
+	coclass MProxy
+	{
+		[default] interface IMReceiver;
+		interface IMObject;
+		interface IMProps;
+	};
+
+	[
+		uuid(4985960F-08F5-4C7A-B439-3255A8A8E9E4),
+		helpstring("MPacker Class (internal)")
+	]
+	coclass MPacker
+	{
+		[default] interface IMProps;
+	};
+
+	[
+		uuid(49859610-08F5-4C7A-B439-3255A8A8E9E4),
+		helpstring("MSync Class")
+	]
+	coclass MSync
+	{
+		[default] interface IMSync;
+		interface IMPlugin;
+		interface IMProps;
+	};
+
+	[
+		uuid(A8C0EEAA-0E52-4F1F-AFCC-BBCB26587B73),
+		helpstring("MSenders Class - Used for enumarating data sources (senders) running in system")
+	]
+	coclass MSenders
+	{
+		[default] interface IMSenders;
+	};
+
+	[
+		uuid(4985960C-08F5-4C7A-B439-3255A8A8E9E4),
+		helpstring("MPreview Class")
+	]
+	coclass MPreview
+	{
+		[default] interface IMPreview;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMProps;
+		interface IMObject;
+		interface IMPlugins;
+		interface IMReceiver;
+	};
+
+	[
+		uuid(34CE4E44-20ED-4811-A3A2-80738A171F20),
+		helpstring("MFile object - Used for playing media files or network streams")
+	]
+	coclass MFile
+	{
+		[default] interface IMFile;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMFormat;
+		interface IMObject;
+		interface IMProps;
+		interface IMPreview;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+		interface IMSource;
+	};
+
+	[
+		uuid(34CE4E46-20ED-4811-A3A2-80738A171F20),
+		helpstring("MItem - the playlist item object")
+	]
+	coclass MItem
+	{
+		[default] interface IMItem; // Set as default for C# 
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMProps;
+		interface IMFile;
+		interface IMFormat;
+		interface IMBreaks;
+		interface IMAudio;
+		interface IMProps;		
+		interface IMPlugins;
+		interface IMPlaylist;	// For MPLaylist
+		interface IMDevice;		// For MLive 
+		interface IMObject;		// For MLive
+		interface IMPreview;		// For MLive
+		interface IMDeckControl;
+		interface IMPersist;
+	};
+
+	[
+		uuid(34CE4E54-20ED-4811-A3A2-80738A171F20),
+		helpstring("MPlaylist class - Used for playing list of media files or network streams")
+	]
+	coclass MPlaylist
+	{
+		[default] interface IMPlaylist;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMFormat;
+		interface IMObject;
+		interface IMFile;
+		interface IMScheduler;
+		interface IMProps;
+		interface IMPreview;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+		interface IMSource;
+	};
+
+	[
+		uuid(84494D2B-A9ED-482C-A147-03F6675342C3),
+		helpstring("MLive Class - Used for capturing from Audio/Video sources (Live Sources) and capture baords (e.g. DELCTAST, Decklink, AJA, etc.)")
+	]
+	coclass MLive
+	{
+		[default] interface IMDevice;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMFormat;
+		interface IMObject;
+		interface IMProps;	
+		interface IMPreview;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+		interface IMDeckControl;
+		interface IMSource;
+	};
+
+	[
+		uuid(1417F704-2CFA-44E5-8517-20BF16016761),
+		helpstring("MRenderer Class - Used to output media to professional video boards (e.g. DELCTAST, Decklink, AJA, etc.)")
+	]
+	coclass MRenderer
+	{
+		[default] interface IMDevice;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		
+		interface IMObject;
+		interface IMFormat;
+		interface IMProps;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+
+		interface IMSenders;
+		interface IMReceiver;
+	};
+
+	[
+		uuid(34CE4E74-20ED-4811-A3A2-80738A171F20),
+		helpstring("MElement - MComposer scene element")
+	]
+	coclass MElement
+	{
+		[default] interface IMElement; 
+		interface IMElements;
+		interface IMAttributes;
+		interface IMPersist;
+	};
+
+	[
+		uuid(34CE4E64-20ED-4811-A3A2-80738A171F20),
+		helpstring("MMixer Class")
+	]
+	coclass MMixer
+	{
+		[default] interface IMObject;
+		[default, source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		[source] dispinterface IMEvents;
+		interface IMFormat;
+		interface IMStreams;
+		interface IMFile;
+		interface IMProps;
+		interface IMPreview;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+
+		interface IMScenes;
+		interface IMElements;
+		interface IMSource;
+	};
+
+	[
+		uuid(34CE4E64-30ED-4811-A3A2-80738A171F20),
+		helpstring("MComposer Class")
+	]
+	coclass MComposer
+	{
+		[default] interface IMObject;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMFormat;
+		interface IMStreams;
+		interface IMFile;
+		interface IMProps;
+		interface IMPreview;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+
+		interface IMScenes;
+		interface IMElements;
+		interface IMSource;
+	};
+
+	[
+		uuid(C691860F-9C67-4D10-A275-2061E94F3B39),
+		helpstring("MWriter")
+	]
+	coclass MWriter
+	{
+		[default] interface IMWriter; 
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMConfig;
+		interface IMObject;
+		interface IMFormat;
+		interface IMProps;
+		interface IMPlugins;
+		interface IMPersist;
+		interface IMAudio;
+
+		interface IMSenders;
+		interface IMReceiver;
+		interface IMScheduler;
+	};
+
+	[
+		uuid(B9E821B5-D77D-4B28-B13E-62C0235F8C5C),
+		helpstring("MWebRTC Class")
+	]
+	coclass MWebRTC
+	{
+		[default] interface IMWebRTC;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMProps;
+		interface IMSource;
+		interface IMReceiver;
+	};
+
+	[
+		uuid(B9E821B6-D77D-4B28-B13E-62C0235F8C5C),
+		helpstring("MWebRTC_Plugin Class")
+	]
+	coclass MWebRTC_Plugin
+	{
+		[default] interface IMWebRTC;
+		[default, source] dispinterface IMEvents;
+		[source] dispinterface IMEventsEvent;
+		[source] dispinterface IMEventsFrame;
+		interface IMPlugin;
+		interface IMProps;
+	};
+
+	[
+		uuid(C08B164D-5CCF-4251-B22F-27AAA7ECABF3),		
+		helpstring("MFSink Class")
+	]
+	coclass MFSink
+	{
+		[default] interface IMFSink;
+		interface IMFReceiver;
+		interface IMFReceiverVB6;
+		interface IMProps;
+	};
+
+	[
+		uuid(E09BF84E-9028-4448-AD34-8CF08BB45565),
+		helpstring("MFSignalingDTMF Class")
+	]
+	coclass MFSignalingDTMF
+	{
+		[default] interface IMFSignalingDTMF;
+		[default, source] dispinterface IMEventsEvent;
+		interface IMProps;
+		interface IMFProcess;
+	};
+
+	[
+		uuid(F587E2D0-20B1-4C47-9586-1202D2447B04),
+		helpstring("MPluginHTML Class")
+	]
+	coclass MFOverlayHTML
+	{
+		[default] interface IMFBrowser;
+		[default, source] dispinterface IMEventsEvent;
+		interface IMProps;
+		interface IMFProcess;
+		interface IMFObject;
+	};	
+
+	[
+		uuid(4102E84B-B00A-4351-B4A2-FED0C3FFDC86),
+		helpstring("MCCDisplay Class")
+	]
+	coclass MCCDisplay
+	{
+		[default] interface IMCCDisplay;
+		interface IMProps;
+		interface IMFProcess;
+	};
+
+	[
+		uuid(8D54BB99-D639-4336-9C3A-17F2D0EAAFA0),
+		helpstring("CoMColors Class")
+	]
+	coclass CoMColors
+	{
+		[default] interface IMColors;
+		interface IMFProcess;
+	};
+};
